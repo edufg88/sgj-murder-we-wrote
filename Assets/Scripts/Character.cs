@@ -105,11 +105,11 @@ public class Character : MonoBehaviour {
 			{
 				if (_item != null)
 				{
-					_item.UseWith(item);
+					_item.UseWith(this, item);
 				}
 				else if (item != null)
 				{
-					item.UseWith(null);
+					item.UseWith(this, null);
 				}
 
 				string beforeUse = "";
