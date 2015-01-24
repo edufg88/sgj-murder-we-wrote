@@ -4,6 +4,7 @@ using System.Collections;
 public class PickableItem : Item 
 {
 	public int picked = 0;
+	public Sprite image;
 
 	public void Pick(Character character)
 	{
