@@ -80,11 +80,13 @@ public class ActionController : MonoBehaviour
 	public void ShowFinale()
 	{
 		// TODO: Depending on _action final result get finale and show it
+		/*
 		string final = Texts.fFire;
 		blackbg.SetActive(true);
 		finaleText.SetActive(true);
 		Text t = finaleText.GetComponent<Text>();
 		finaleText.GetComponentInChildren<Text>().text = final;
+		*/
 	}
 
 	// Use this for initialization
