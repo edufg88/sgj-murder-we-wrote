@@ -45,7 +45,7 @@ public static class Texts {
 	public static string fire = "Bloody hell, my kitchen is on fire!!";
 	public static string fireExtinguisher = "Use it!!";
 	public static string fireExtinguisherResult = "Good job!";				//accion 23
-    public static string exit = "Run like the wind!"
+	public static string exit = "Run like the wind!";
 	public static string partner = "What do we do know?";
 	public static string knifePartner = "KILL HIM, KILL HIM!";
 	public static string carpet = "Is this rug Persian or Turkish?";
