@@ -164,6 +164,95 @@ public abstract class Item : MonoBehaviour
 		}
 	}
 
+	public void GetText(Item other, out string beforeUse, out string afterUse)
+	{
+		beforeUse = "";
+		afterUse = "";
+		// 1 LEVEL COMBINATIONS
+		if (other == null)
+		{
+			// Using object only
+			if (itemType == ItemType.ROCKSTAR)
+			{
+				beforeUse = Texts.rockstar;
+			}
+			else if (itemType == ItemType.WC)
+			{
+				beforeUse = Texts.wc;
+				afterUse = Texts.wcResult;
+			}
+			else if (itemType == ItemType.SINK)
+			{
+				beforeUse = Texts.sink;
+				afterUse = Texts.sinkUse;
+			}
+			else if (itemType == ItemType.PHONE)
+			{
+				beforeUse = Texts.phone;
+			}
+			else if (itemType == ItemType.KNIFE)
+			{
+				beforeUse = Texts.knife;
+			}
+			else if (itemType == ItemType.BAG)
+			{
+				beforeUse = Texts.garbagebag;
+			}
+		}
+		else
+		{
+			// 2 LEVEL COMBINATION
+			// Using object together with another object
+			if (itemType == ItemType.MOP && other.itemType == ItemType.BLOOD)
+			{
+				beforeUse = Texts.bloodMop;
+			}
+			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.BED)
+			{
+				beforeUse = Texts.bedCorpse;
+			}
+			else if (itemType == ItemType.CAT && other.itemType == ItemType.SINK)
+			{
+				beforeUse = Texts.sinkCatUse;
+			}
+			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.CARPET)
+			{
+				//TODO poner texto
+			}
+			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.FRIDGE)
+			{
+				//TODO poner texto
+			}
+			// 3 LEVEL COMBINATION
+			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.PLANT)
+			{
+				//TODO poner texto
+			}
+			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.HOLE)
+			{
+				// TODO poner texto
+			}
+			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.BATH)
+			{
+				// TODO poner texto
+				beforeUse = Texts.bathCorpse;
+			}
+			else if (itemType == ItemType.ACID && other.itemType == ItemType.BATHANDCORPSE)
+			{
+				beforeUse = Texts.bathCorpseAcid;
+				afterUse = Texts.bathCorpseAcid;
+			}
+			else if (itemType == ItemType.CAT && other.itemType == ItemType.OVEN)
+			{
+				beforeUse = Texts.ovenCat;
+			}
+			else if (itemType == ItemType.EXTINGUISHER && other.itemType == ItemType.FIRE)
+			{
+				beforeUse = Texts.fireExtinguisher;
+			}
+		}
+	}
+
 	// Use this for initialization
 	void Start () 
 	{
