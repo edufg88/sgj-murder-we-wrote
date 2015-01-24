@@ -3,6 +3,11 @@ using System.Collections;
 
 public class FixedItem : Item 
 {
+	public override bool IsPickable()
+	{
+		return false;
+	}
+
 	public void ApplyEffect()
 	{
 

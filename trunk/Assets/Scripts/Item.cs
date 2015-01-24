@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item : MonoBehaviour 
+public abstract class Item : MonoBehaviour 
 {
 	public enum ItemType
 	{
@@ -36,6 +36,8 @@ public class Item : MonoBehaviour
 
 	private ActionController _ac = null;
 	public ItemType itemType = ItemType.NONE;
+
+	public abstract bool IsPickable();
 
 	public void UseWith(Item other)
 	{
