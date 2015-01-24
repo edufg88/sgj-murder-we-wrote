@@ -4,12 +4,26 @@ using System.Collections.Generic;
 
 public class AudioController : MonoBehaviour 
 {
+	#region Patron Singleton
+	private static AudioController _instancia = null;
+	public static AudioController Instancia{
+		get
+		{
+			if(_instancia == null)
+			{
+				_instancia = FindObjectOfType<AudioController>();
+			}
+			return _instancia;
+		}
+	}
+	#endregion
+
 	#region Exposed attributes
 	public AudioClip ambientSound;
-	public AudioClip flipSound;
-	public AudioClip collectSound;
-	public AudioClip damageSound;
-	public AudioClip dieSound;
+	public AudioClip doorClose;
+	public AudioClip doorOpen;
+	public AudioClip footstepOne;
+	public AudioClip footstepTwo;
 	#endregion
 
 	#region Private attributes
@@ -74,15 +88,13 @@ public class AudioController : MonoBehaviour
 	void Start () 
 	{
 		_audioLibrary["ambient"] = ambientSound;
-		_audioLibrary["flip"] = flipSound;
-		_audioLibrary["collect"] = collectSound;
-		_audioLibrary["damage"] = damageSound;
-		_audioLibrary["die"] = dieSound;
-
+		_audioLibrary["doorClose"] = doorClose;
+		_audioLibrary["openDoor"] = doorOpen;
+		_audioLibrary["footstepOne"] = footstepOne;
+		_audioLibrary["footstepTwo"] = footstepTwo;
 		// TODO: Remove as it is only for testing
 		Play ("ambient", true);
-		Play ("collect");
-		StopAll();
+
 	}
 
 	void Update () 
