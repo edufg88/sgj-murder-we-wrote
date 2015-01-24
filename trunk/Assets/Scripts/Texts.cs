@@ -36,4 +36,6 @@ public static class Texts {
 	public static string fire = "Bloody hell, my kitchen is on fire!!";
 	public static string fireExtinguisher = "Use it!!";
 
+	public static string knifePartner = "KILL HIM, KILL HIM!";
+
 }
