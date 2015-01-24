@@ -322,7 +322,7 @@ public abstract class Item : MonoBehaviour
 		}
 		if(beforeUse != "")
 		{
-			GameGUI.Instancia.ShowHelp(beforeUse,new Vector2(character.gameObject.transform.localPosition.x, character.gameObject.transform.localPosition.y + 50),character.id);
+			GameGUI.Instancia.ShowHelp(beforeUse,character.GetPositionForUI(),character.id);
 		}
 	}
 	

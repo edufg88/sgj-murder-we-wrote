@@ -57,7 +57,7 @@ public class GameGUI : MonoBehaviour {
 
 		if(player == 0){
 			BSP1.SetActive(true);
-			BSP1.GetComponent<RectTransform>().transform.localPosition = new Vector3(posicion.x, posicion.y, 0);
+			BSP1.GetComponent<RectTransform>().anchoredPosition = new Vector3(posicion.x, posicion.y, 0);
 
 			Transform t = GetChildByName("Placeholder", BSP1.transform);
 		
@@ -67,7 +67,7 @@ public class GameGUI : MonoBehaviour {
 
 		if(player == 1){
 			BSP2.SetActive(true);
-			BSP2.GetComponent<RectTransform>().transform.localPosition = new Vector3(posicion.x, posicion.y, 0);
+			BSP2.GetComponent<RectTransform>().anchoredPosition = new Vector3(posicion.x, posicion.y, 0);
 
 			Transform t = GetChildByName("Placeholder", BSP2.transform);
 		
