@@ -46,14 +46,18 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Franks\GameGUI.cs" />
      <Compile Include="Assets\Scripts\ActionController.cs" />
+     <Compile Include="Assets\Scripts\AudioController.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\ControlHUDP1.cs" />
      <Compile Include="Assets\Scripts\Corpse.cs" />
      <Compile Include="Assets\Scripts\CuentaAtras.cs" />
      <Compile Include="Assets\Scripts\EventController.cs" />
      <Compile Include="Assets\Scripts\FixedItem.cs" />
+     <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
+     <Compile Include="Assets\Scripts\ItemController.cs" />
      <Compile Include="Assets\Scripts\NotificationCenter.cs" />
      <Compile Include="Assets\Scripts\PickableItem.cs" />
      <Compile Include="Assets\Scripts\Texts.cs" />

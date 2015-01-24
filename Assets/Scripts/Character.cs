@@ -124,10 +124,26 @@ public class Character : MonoBehaviour {
 				}
 				if(afterUse != "")
 				{
-					GameGUI.Instancia.ShowHelp(afterUse,new Vector2(this.transform.localPosition.x, this.transform.localPosition.y + 50),id);
+					GameGUI.Instancia.ShowHelp(afterUse,GetPositionForUI(),id);
 				}
 			}
 		}
+	}
+
+	public Vector2 GetPositionForUI()
+	{
+		//first you need the RectTransform component of your canvas
+		RectTransform CanvasRect=GameGUI.Instancia.GetComponent<RectTransform>();
+		
+		Camera Cam = Camera.main;
+		//then you calculate the position of the UI element
+		//0,0 for the canvas is at the center of the screen, whereas WorldToViewPortPoint treats the lower left corner as 0,0. Because of this, you need to subtract the height / width of the canvas * 0.5 to get the correct position.
+		Vector2 ViewportPosition=Cam.WorldToViewportPoint(gameObject.transform.position);
+		Vector2 WorldObject_ScreenPosition=new Vector2(
+			((ViewportPosition.x*CanvasRect.sizeDelta.x)-(CanvasRect.sizeDelta.x*0.5f)),
+			((ViewportPosition.y*CanvasRect.sizeDelta.y)-(CanvasRect.sizeDelta.y*0.5f)));
+		//now you can set the position of the ui element
+		return WorldObject_ScreenPosition;
 	}
 
 	public void Attach(Character character)
