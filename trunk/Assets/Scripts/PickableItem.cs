@@ -17,22 +17,24 @@ public class PickableItem : Item
 		this.picked++;
 		if (this.itemType == ItemType.CORPSE)
 		{
-			this.GetComponent<Corpse>().Attach(character);
+			this.gameObject.GetComponent<Corpse>().Attach(character);
 		}
 		else
 		{
-			this.enabled = false;
-			_sprite.renderer.enabled = false;
+			this.gameObject.SetActive(false);
+			//this.enabled = false;
+			//_sprite.renderer.enabled = false;
 		}
 	}
 
 	public void Drop(Character character)
 	{
-		this.enabled = true;
-		_sprite.renderer.enabled = true;
+		//this.enabled = true;
+		//_sprite.renderer.enabled = true;
+		this.gameObject.SetActive(true);
 		if (this.itemType == ItemType.CORPSE)
 		{
-			this.GetComponent<Corpse>().Detach(character);
+			this.gameObject.GetComponent<Corpse>().Detach(character);
 			character.Detach();
 		}
 		this.transform.position = character.transform.position;
