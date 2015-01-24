@@ -84,6 +84,8 @@ public abstract class Item : MonoBehaviour
 			else if (itemType == ItemType.WC)
 			{
 				_ac.AddActionResult(ActionController.ART.ETHIC, 1);
+
+				// TODO: Sit
 			}
 			else if (itemType == ItemType.SINK)
 			{
@@ -91,6 +93,12 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 3);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 1);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -1);
+
+				if (character.withBlood)
+				{
+					character.withBlood = false;
+					// TODO: Change sprite
+				}
 			}
 			else if (itemType == ItemType.PHONE)
 			{
@@ -98,13 +106,17 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 1);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 1);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -1);
+
 				// TODO: Decrease timer
 			}
 			else if (itemType == ItemType.KNIFE)
 			{
-				// TODO: Check proximity with the other player
-				// if (nearEnough)
+				// Check proximity with the other player
+				if (character.IsCollidingOtherPlayer())
 				{
+					// Kill other player
+					character.GetOtherPlayer().Die();
+
 					_ac.AddActionResult(ActionController.ART.HIDDEN_CORPSE, -10);
 					_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, -10);
 					_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, -15);
@@ -117,6 +129,8 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 1);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 1);
 				_ac.AddActionResult(ActionController.ART.ETHIC, 3);
+
+				this.gameObject.GetComponent<Bag>().Use(character);
 			}
 		}
 		else
@@ -130,7 +144,7 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 5);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -3);
 
-				//TODO: Clean blood
+				other.gameObject.SetActive(false);
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.BED)
 			{
@@ -138,6 +152,8 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 2);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 2);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -5);
+
+				this.gameObject.SetActive(false);
 			}
 			else if (itemType == ItemType.CAT && other.itemType == ItemType.SINK)
 			{

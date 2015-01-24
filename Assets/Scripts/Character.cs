@@ -19,9 +19,35 @@ public class Character : MonoBehaviour {
 	public KeyCode keyUse;
 	public float speed;
 	public int id;
+	public bool withBlood;
+	public bool dead = false;
 	#endregion
 
 	#region PUBLIC METHODS
+	public void Die()
+	{
+		dead = true;
+		// TODO: Change sprite
+
+	}
+
+	public Character GetOtherPlayer()
+	{
+		return (this == GameController.Instance.char1) ? GameController.Instance.char2 : GameController.Instance.char1;
+	}
+
+	public bool IsCollidingOtherPlayer()
+	{
+		Character other = GetOtherPlayer();
+
+		Bounds characterBound = this.gameObject.GetComponent<BoxCollider2D> ().bounds;
+		if(characterBound.Intersects(other.gameObject.GetComponent<BoxCollider2D>().bounds))
+		{
+			return true;
+		}
+		return false;
+	}
+
 	// Use this for initialization
 	public void Awake () {
 		_horizontal = 0;
@@ -125,6 +151,13 @@ public class Character : MonoBehaviour {
 				if(afterUse != "")
 				{
 					GameGUI.Instancia.ShowHelp(afterUse,GetPositionForUI(),id);
+				}
+			}
+			else if (_item != null)
+			{
+				if (_item.itemType == Item.ItemType.KNIFE)
+				{
+					_item.UseWith(this, null);
 				}
 			}
 		}

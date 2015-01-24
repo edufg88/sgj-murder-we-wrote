@@ -33,19 +33,11 @@ public class ItemController : MonoBehaviour
 		Transform item = itemContainer.transform.FindChild(name);
 		item.gameObject.SetActive(true);
 	}
+
 	public void HideItem(string name)
 	{
 		Transform item = itemContainer.transform.FindChild(name);
 		item.gameObject.SetActive(false);
-	}
-
-	public void CreateAllItems()
-	{
-		itemContainer.SetActive(true);
-		foreach (Item it in items)
-		{
-			// TODO: Place every item in scene
-		}
 	}
 
 	// Use this for initialization
