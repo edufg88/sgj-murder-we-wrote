@@ -44,6 +44,7 @@ public static class Texts {
 	public static string holeCorpseResult = "";								//accion 3 (daria lugar al zombie)
 	public static string fire = "Bloody hell, my kitchen is on fire!!";
 	public static string fireExtinguisher = "Use it!!";
+	public static string exit = "Run like the wind!!";
 
 	public static string fireExtinguisherResult = "Good job!";				//accion 23
 	public static string partner = "What do we do know?";

@@ -27,7 +27,8 @@ public abstract class Item : MonoBehaviour
 		"Plant",
 		"BathAndCorpse",
 		"Hole",
-		"Fire"
+		"Fire",
+		"Exit"
 	};
 
 	public enum ItemType
@@ -54,6 +55,7 @@ public abstract class Item : MonoBehaviour
 		OVEN,
 		BATH,
 		PLANT,
+		EXIT,
 		// MIX (FIXED)
 		BATHANDCORPSE,
 		HOLE,
@@ -132,6 +134,20 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.ETHIC, 3);
 
 				this.gameObject.GetComponent<Bag>().Use(character);
+			}
+			else if (itemType == ItemType.EXIT)
+			{
+				if(character.id == 0)
+				{
+					character.gameObject.SetActive(false);
+					EventController.Instance.TakeDecision(EventController.ED.P1_OUT);
+				}
+				else
+				{
+					character.gameObject.SetActive(false);
+					EventController.Instance.TakeDecision(EventController.ED.P1_OUT);
+				}
+				GameGUI.Instancia.HideHelp(character.id);
 			}
 		}
 		else
@@ -280,6 +296,10 @@ public abstract class Item : MonoBehaviour
 			else if (itemType == ItemType.BAG)
 			{
 				beforeUse = Texts.garbagebag;
+			}
+			else if (itemType == ItemType.EXIT)
+			{
+				beforeUse = Texts.exit;
 			}
 		}
 		else
