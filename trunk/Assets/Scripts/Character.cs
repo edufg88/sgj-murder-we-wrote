@@ -8,7 +8,7 @@ public class Character : MonoBehaviour {
 	private Animator _animator;
 	private int _horizontal;
 	private int _vertical;
-	private PickableItem _item;
+	public PickableItem _item;
 	private Character _attachment = null;
 
 	public KeyCode keyUp;
@@ -124,36 +124,11 @@ public class Character : MonoBehaviour {
 				}
 				if(afterUse != "")
 				{
-					//GameGUI.ShowHelp(afterUse,id);
+					GameGUI.Instancia.ShowHelp(afterUse,new Vector2(this.transform.localPosition.x, this.transform.localPosition.y + 50),id);
 				}
 			}
 		}
 	}
-
-	public void OnTriggerEnter(Collider collider)
-	{
-		Item item = collider.gameObject.GetComponent<Item> ();
-		string beforeUse = "";
-		string afterUse = "";
-		if(_item != null)
-		{
-			_item.GetText(item,out beforeUse,out afterUse);
-		}
-		else
-		{
-			item.GetText(_item,out beforeUse, out afterUse);
-		}
-		if(beforeUse != "")
-		{
-			//GameGUI.ShowHelp(beforeUse,id);
-		}
-	}
-
-	public void OnTriggerExit(Collider collider)
-	{
-			//GameGUI.HideHelp(id);
-	}
-
 
 	public void Attach(Character character)
 	{
@@ -174,14 +149,14 @@ public class Character : MonoBehaviour {
 	{
 		_item = item;
 		_item.Pick(this);
-		NotificationCenter.DefaultCenter().AddObserver(this, "PonerTextureOne");
+		GameGUI.Instancia.SetIcon (_item.image, id);
 	}
 
 	public void DropItem()
 	{
 		_item.Drop(this);
 		_item = null;	
-		NotificationCenter.DefaultCenter().AddObserver(this, "PonerTextureTwo");
+		GameGUI.Instancia.SetIcon (null, id);
 	}
 	#endregion
 
@@ -220,7 +195,7 @@ public class Character : MonoBehaviour {
 		Vector2 newPos = new Vector2 (this.gameObject.transform.localPosition.x  + _horizontal * speed, this.gameObject.transform.localPosition.y + _vertical * speed);
 		if(_horizontal != 0 || _vertical != 0)
 		{
-			this.gameObject.transform.localPosition = Vector3.MoveTowards(this.gameObject.transform.localPosition, newPos,1);
+			this.gameObject.transform.localPosition = Vector3.MoveTowards(this.gameObject.transform.localPosition, newPos,speed);
 			if (_attachment != null)
 			{
 				Vector2 newPos2 = new Vector2 (_attachment.transform.localPosition.x  + _horizontal * speed, _attachment.transform.localPosition.y + _vertical * speed);
