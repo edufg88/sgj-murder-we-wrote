@@ -308,28 +308,31 @@ public abstract class Item : MonoBehaviour
 
 	public void OnTriggerEnter2D(Collider2D collider)
 	{
-		Debug.Log("Entro motherfucker");
 		Character character = collider.gameObject.GetComponent<Character> ();
-		string beforeUse = "";
-		string afterUse = "";
-		if(character._item != null)
+		if(character != null)
 		{
-			character._item.GetText(this,out beforeUse,out afterUse);
-		}
-		else
-		{
-			this.GetText(character._item,out beforeUse, out afterUse);
-		}
-		if(beforeUse != "")
-		{
-			GameGUI.Instancia.ShowHelp(beforeUse,character.GetPositionForUI(),character.id);
+			string beforeUse = "";
+			string afterUse = "";
+			if(character._item != null)
+			{
+				character._item.GetText(this,out beforeUse,out afterUse);
+			}
+			else
+			{
+				this.GetText(character._item,out beforeUse, out afterUse);
+			}
+			if(beforeUse != "")
+			{
+				GameGUI.Instancia.ShowHelp(beforeUse,character.GetPositionForUI(),character.id);
+			}
 		}
 	}
 	
 	public void OnTriggerExit2D(Collider2D collider)
 	{
 		Character character = collider.gameObject.GetComponent<Character> ();
-		GameGUI.Instancia.HideHelp (character.id);
+		if(character != null)
+			GameGUI.Instancia.HideHelp (character.id);
 	}
 
 	// Use this for initialization
