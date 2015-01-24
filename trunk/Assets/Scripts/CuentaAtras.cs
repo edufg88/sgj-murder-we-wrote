@@ -47,6 +47,9 @@ public class CuentaAtras : MonoBehaviour {
 
 		if(GUI.Button(new Rect(10, 130, 50, 50), "Sumar tiempo")){
 			NotificationCenter.DefaultCenter().PostNotification(this, "AumentarTiempo");
+
+			//Esto no va aqui, pero es para hacer una prueba
+			NotificationCenter.DefaultCenter().PostNotification(this, "Bocadillo");
 		}
 
 	}
