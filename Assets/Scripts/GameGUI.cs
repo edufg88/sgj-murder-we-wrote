@@ -3,12 +3,20 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GameGUI : MonoBehaviour {
-	
+
+	#region ATTRIBUTES
 	private Image imageHUDP1;
 	private Image imageHUDP2;
 	private GameObject BSP1;
 	private GameObject BSP2;
+	public delegate void VoidDelegate();
+	public VoidDelegate OnTimeUp;
 	public Sprite emptyHUDP;
+	public Text timer;
+
+	private float _timeActual;
+	#endregion
+
 	#region Patron Singleton
 	private static GameGUI _instancia = null;
 	public static GameGUI Instancia{
@@ -23,6 +31,8 @@ public class GameGUI : MonoBehaviour {
 	}
 	#endregion
 
+
+	#region PUBLIC METHODS
 	void Start(){
 
 		imageHUDP1 = GameObject.Find("HUDP1").GetComponent<Image>();
@@ -34,6 +44,8 @@ public class GameGUI : MonoBehaviour {
 		BSP1.SetActive (false);
 		BSP2.SetActive (false);
 
+		//temporal
+		StartTimer(120);
 	}
 
 	
@@ -83,6 +95,23 @@ public class GameGUI : MonoBehaviour {
 		else
 			BSP2.SetActive(false);
 	}
+
+	public void StartTimer(float totalTime)
+	{
+		CancelInvoke ("TimePassed");
+		_timeActual = totalTime;
+		Invoke ("TimePassed", 0);
+
+	}
+	public void TimeTravel(float deltaTime)
+	{
+		CancelInvoke ("TimePassed");
+		_timeActual = Mathf.Max(_timeActual - deltaTime,0);
+		Invoke ("TimePassed", 0);
+	}
+	#endregion
+
+	#region PRIVATE METHODS
 	private Transform GetChildByName(string name, Transform t){
 	
 		for(int i = 0; i < t.childCount; i++){
@@ -96,4 +125,24 @@ public class GameGUI : MonoBehaviour {
 		return null;
 
 	}
+
+	private void TimePassed()
+	{
+		_timeActual--;
+		float segundos = _timeActual % 60;
+		float minutos = _timeActual / 60;
+		
+		timer.text = ((int)minutos).ToString() +  ":" + ((int)segundos).ToString();
+		if(_timeActual > 0)
+		{
+			Invoke("TimePassed",1);
+		}
+		else
+		{
+			if(OnTimeUp != null)
+				OnTimeUp();
+		}
+
+	}
+	#endregion
 }
