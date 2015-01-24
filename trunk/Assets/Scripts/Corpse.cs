@@ -51,14 +51,27 @@ public class Corpse : MonoBehaviour
 		else if (_attachment[0] != null && _attachment[1] == null)
 		{
 			this.transform.position = _attachment[0].transform.position;
+			InstantiateBloodSplash();
 		}
 		else if (_attachment[0] == null && _attachment[1] != null)
 		{
 			this.transform.position = _attachment[1].transform.position;
+			InstantiateBloodSplash();
 		}
 		else //if (_attachment[0] != null && _attachment[1] != null)
 		{
 			this.transform.position = (_attachment[0].transform.position + _attachment[1].transform.position) / 2;
+		}
+	}
+
+	void InstantiateBloodSplash()
+	{
+		if(Physics2D.OverlapPointAll (transform.position).Length < 3)
+		{
+			GameObject blood = (GameObject)Instantiate (bloodPrefab);
+			blood.transform.parent = this.transform.parent;
+			blood.transform.position = this.transform.position;
+			blood.transform.localScale = new Vector3 (1, 1, 1);
 		}
 	}
 }
