@@ -18,6 +18,7 @@ public class Character : MonoBehaviour {
 	public KeyCode keyPick;
 	public KeyCode keyUse;
 	public float speed;
+	public int id;
 	#endregion
 
 	#region PUBLIC METHODS
@@ -110,9 +111,49 @@ public class Character : MonoBehaviour {
 				{
 					item.UseWith(null);
 				}
+
+				string beforeUse = "";
+				string afterUse = "";
+				if(_item != null)
+				{
+					_item.GetText(item,out beforeUse,out afterUse);
+				}
+				else
+				{
+					item.GetText(_item,out beforeUse, out afterUse);
+				}
+				if(afterUse != "")
+				{
+					//GameGUI.ShowHelp(afterUse,id);
+				}
 			}
 		}
 	}
+
+	public void OnTriggerEnter(Collider collider)
+	{
+		Item item = collider.gameObject.GetComponent<Item> ();
+		string beforeUse = "";
+		string afterUse = "";
+		if(_item != null)
+		{
+			_item.GetText(item,out beforeUse,out afterUse);
+		}
+		else
+		{
+			item.GetText(_item,out beforeUse, out afterUse);
+		}
+		if(beforeUse != "")
+		{
+			//GameGUI.ShowHelp(beforeUse,id);
+		}
+	}
+
+	public void OnTriggerExit(Collider collider)
+	{
+			//GameGUI.HideHelp(id);
+	}
+
 
 	public void Attach(Character character)
 	{
@@ -183,7 +224,7 @@ public class Character : MonoBehaviour {
 			if (_attachment != null)
 			{
 				Vector2 newPos2 = new Vector2 (_attachment.transform.localPosition.x  + _horizontal * speed, _attachment.transform.localPosition.y + _vertical * speed);
-				_attachment.transform.localPosition = Vector3.MoveTowards(_attachment.transform.localPosition, newPos2,1);
+				_attachment.transform.localPosition = Vector3.MoveTowards(_attachment.transform.localPosition, newPos2,speed);
 			}
 		}
 	}

@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\ActionController.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\ControlHUDP1.cs" />
+     <Compile Include="Assets\Scripts\Corpse.cs" />
      <Compile Include="Assets\Scripts\CuentaAtras.cs" />
      <Compile Include="Assets\Scripts\EventController.cs" />
      <Compile Include="Assets\Scripts\FixedItem.cs" />
