@@ -108,6 +108,7 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.ETHIC, -1);
 
 				// TODO: Decrease timer
+				GameGUI.Instancia.TimeTravel(30);
 			}
 			else if (itemType == ItemType.KNIFE)
 			{
@@ -154,6 +155,7 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.ETHIC, -5);
 
 				this.gameObject.SetActive(false);
+				character._item = null;
 			}
 			else if (itemType == ItemType.CAT && other.itemType == ItemType.SINK)
 			{
@@ -161,6 +163,9 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, -3);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, -5);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -8);
+
+				// TODO: Play cat sound
+				character._item = null;
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.CARPET)
 			{
@@ -168,6 +173,9 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 2);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 1);
 				_ac.AddActionResult(ActionController.ART.ETHIC, 2);
+
+				this.gameObject.SetActive(false);
+				character._item = null;
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.FRIDGE)
 			{
@@ -175,6 +183,9 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 2);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 2);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -5);
+
+				this.gameObject.SetActive(false);
+				character._item = null;
 			}
 			// 3 LEVEL COMBINATION
 			else if (itemType == ItemType.SHOVEL && other.itemType == ItemType.PLANT)
@@ -193,11 +204,13 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.ETHIC, -1);
 
 				this.gameObject.SetActive(false);
+				character._item = null;
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.BATH)
 			{
 				this.gameObject.SetActive(false);
 				other.gameObject.SetActive(false);
+				character._item = null;
 
 				ItemController.Instance.ShowItem(ItemStrings[(int)ItemType.BATHANDCORPSE]);
 			}
@@ -209,6 +222,7 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.ETHIC, -10);
 
 				other.gameObject.SetActive(false);
+				character._item = null;
 			}
 			else if (itemType == ItemType.CAT && other.itemType == ItemType.OVEN)
 			{
@@ -216,6 +230,7 @@ public abstract class Item : MonoBehaviour
 				this.gameObject.SetActive(false);
 				other.gameObject.SetActive(false);
 				ItemController.Instance.ShowItem(ItemStrings[(int)ItemType.FIRE]);
+				character._item = null;
 			}
 			else if (itemType == ItemType.EXTINGUISHER && other.itemType == ItemType.FIRE)
 			{
@@ -227,6 +242,7 @@ public abstract class Item : MonoBehaviour
 				// TODO:Check if both can use it
 				this.gameObject.SetActive(false);
 				other.gameObject.SetActive(false);
+				character._item = null;
 			}
 		}
 	}
