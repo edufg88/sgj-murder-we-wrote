@@ -3,6 +3,33 @@ using System.Collections;
 
 public abstract class Item : MonoBehaviour 
 {
+	public string[] ItemStrings = 
+	{
+		"None",
+		"Corpse",
+		"Rockstar",
+		"Shovel",
+		"Mop",
+		"Knife",
+		"Cat",
+		"Acid",
+		"Bag",
+		"Extinguisher",
+		"WC",
+		"Sink",
+		"Blood",
+		"Phone",
+		"Bed",
+		"Carpet",
+		"Fridge",
+		"Oven",
+		"Bath",
+		"Plant",
+		"BathAndCorpse",
+		"Hole",
+		"Fire"
+	};
+
 	public enum ItemType
 	{
 		NONE = 0,
@@ -26,12 +53,12 @@ public abstract class Item : MonoBehaviour
 		FRIDGE,
 		OVEN,
 		BATH,
-		ITEM_COUNT,
 		PLANT,
 		// MIX (FIXED)
 		BATHANDCORPSE,
 		HOLE,
-		FIRE
+		FIRE,
+		ITEM_COUNT
 	}
 
 	private ActionController _ac = null;
@@ -39,8 +66,10 @@ public abstract class Item : MonoBehaviour
 
 	public abstract bool IsPickable();
 
-	public void UseWith(Item other)
+	public void UseWith(Character character, Item other)
 	{
+		_ac = ActionController.Instance;
+
 		// 1 LEVEL COMBINATIONS
 		if (other == null)
 		{
@@ -48,7 +77,9 @@ public abstract class Item : MonoBehaviour
 			if (itemType == ItemType.ROCKSTAR)
 			{
 				_ac.AddActionResult(ActionController.ART.ETHIC, -5);
-				// TODO: Añadir tiempo
+				// Increase player speed
+				character.speed *= 1.5f;
+				this.gameObject.SetActive(false);
 			}
 			else if (itemType == ItemType.WC)
 			{
@@ -98,6 +129,8 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 8);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 5);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -3);
+
+				//TODO: Clean blood
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.BED)
 			{
@@ -128,9 +161,13 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.ETHIC, -5);
 			}
 			// 3 LEVEL COMBINATION
-			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.PLANT)
+			else if (itemType == ItemType.SHOVEL && other.itemType == ItemType.PLANT)
 			{
-				// TODO: Create HOLE object
+				ItemController.Instance.hole.SetActive(true);
+				// Create HOLE object, hide PLANT
+				other.gameObject.SetActive(false);
+				ItemController.Instance.ShowItem(ItemStrings[(int)ItemType.HOLE]);
+
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.HOLE)
 			{
@@ -138,10 +175,15 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 5);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 8);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -1);
+
+				this.gameObject.SetActive(false);
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.BATH)
 			{
-				// TODO: Create BATHANDCORPSE object
+				this.gameObject.SetActive(false);
+				other.gameObject.SetActive(false);
+
+				ItemController.Instance.ShowItem(ItemStrings[(int)ItemType.BATHANDCORPSE]);
 			}
 			else if (itemType == ItemType.ACID && other.itemType == ItemType.BATHANDCORPSE)
 			{
@@ -149,10 +191,15 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 8);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 5);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -10);
+
+				other.gameObject.SetActive(false);
 			}
 			else if (itemType == ItemType.CAT && other.itemType == ItemType.OVEN)
 			{
 				// TODO: Create FIRE object
+				this.gameObject.SetActive(false);
+				other.gameObject.SetActive(false);
+				ItemController.Instance.ShowItem(ItemStrings[(int)ItemType.FIRE]);
 			}
 			else if (itemType == ItemType.EXTINGUISHER && other.itemType == ItemType.FIRE)
 			{
@@ -160,6 +207,10 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 4);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 8);
 				_ac.AddActionResult(ActionController.ART.ETHIC, 5);
+
+				// TODO:Check if both can use it
+				this.gameObject.SetActive(false);
+				other.gameObject.SetActive(false);
 			}
 		}
 	}
