@@ -217,24 +217,26 @@ public abstract class Item : MonoBehaviour
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.CARPET)
 			{
-				//TODO poner texto
+				beforeUse = Texts.carpetCorpse;
+				afterUse = Texts.carpetCorpseResult;
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.FRIDGE)
 			{
-				//TODO poner texto
+				beforeUse = Texts.fridgeCorpse;
+				afterUse = Texts.fridgeCorpseResult;
 			}
 			// 3 LEVEL COMBINATION
-			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.PLANT)
+			else if (itemType == ItemType.SHOVEL && other.itemType == ItemType.PLANT)
 			{
-				//TODO poner texto
+				beforeUse = Texts.shovelPlant;
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.HOLE)
 			{
-				// TODO poner texto
+				beforeUse = Texts.holeCorpse;
+				afterUse = Texts.holeCorpseResult;
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.BATH)
 			{
-				// TODO poner texto
 				beforeUse = Texts.bathCorpse;
 			}
 			else if (itemType == ItemType.ACID && other.itemType == ItemType.BATHANDCORPSE)
