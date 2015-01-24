@@ -9,6 +9,7 @@ public class Character : MonoBehaviour {
 	private int _horizontal;
 	private int _vertical;
 	private PickableItem _item;
+	private Character _attachment = null;
 
 	public KeyCode keyUp;
 	public KeyCode keyDown;
@@ -101,8 +102,30 @@ public class Character : MonoBehaviour {
 			Item item;
 			if(IntersectSomeUsableItem(out item))
 			{
-				item.UseWith((Item)_item);
+				if (_item != null)
+				{
+					_item.UseWith(item);
+				}
+				else if (item != null)
+				{
+					item.UseWith(null);
+				}
 			}
+		}
+	}
+
+	public void Attach(Character character)
+	{
+		_attachment = character;
+	}
+
+	public void Detach()
+	{
+		if (_attachment != null)
+		{
+			Character aux = _attachment;
+			_attachment = null;
+			aux.Detach();
 		}
 	}
 
@@ -157,6 +180,11 @@ public class Character : MonoBehaviour {
 		if(_horizontal != 0 || _vertical != 0)
 		{
 			this.gameObject.transform.localPosition = Vector3.MoveTowards(this.gameObject.transform.localPosition, newPos,1);
+			if (_attachment != null)
+			{
+				Vector2 newPos2 = new Vector2 (_attachment.transform.localPosition.x  + _horizontal * speed, _attachment.transform.localPosition.y + _vertical * speed);
+				_attachment.transform.localPosition = Vector3.MoveTowards(_attachment.transform.localPosition, newPos2,1);
+			}
 		}
 	}
 	private void SetAnimatorState()
