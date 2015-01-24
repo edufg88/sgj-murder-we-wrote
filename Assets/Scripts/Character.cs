@@ -21,13 +21,18 @@ public class Character : MonoBehaviour {
 	public int id;
 	public bool withBlood;
 	public bool dead = false;
+	public GameObject corpsePrefab;
 	#endregion
 
 	#region PUBLIC METHODS
 	public void Die()
 	{
 		dead = true;
-		// TODO: Change sprite
+		// TODO: sonido muerte
+		GameObject corpse = (GameObject)Instantiate (corpsePrefab);
+		corpse.transform.parent = GameObject.Find ("Items").transform;
+		corpse.transform.position = this.transform.position;
+		gameObject.SetActive (false);
 
 	}
 
