@@ -8,7 +8,7 @@ public class GameGUI : MonoBehaviour {
 	private Image imageHUDP2;
 	private GameObject BSP1;
 	private GameObject BSP2;
-
+	public Sprite emptyHUDP;
 	#region Patron Singleton
 	private static GameGUI _instancia = null;
 	public static GameGUI Instancia{
@@ -31,6 +31,9 @@ public class GameGUI : MonoBehaviour {
 		BSP1 = GameObject.Find("BubbleSpeechP1");
 		BSP2 = GameObject.Find("BubbleSpeechP2");
 
+		BSP1.SetActive (false);
+		BSP2.SetActive (false);
+
 	}
 
 	
@@ -38,18 +41,22 @@ public class GameGUI : MonoBehaviour {
 
 		//Si player = 0 ==> P1
 		//Si player = 1 ==> P2
-
+		if(sprite == null)
+		{
+			sprite = emptyHUDP;
+		}
 		if(player == 0){
 			imageHUDP1.sprite = sprite;
 		}else if(player == 1){
 			imageHUDP2.sprite = sprite;
 		}
+
 	}
 
 	public void ShowHelp(string message, Vector2 posicion, int player){
 
 		if(player == 0){
-
+			BSP1.SetActive(true);
 			BSP1.GetComponent<RectTransform>().transform.localPosition = new Vector3(posicion.x, posicion.y, 0);
 
 			Transform t = GetChildByName("Placeholder", BSP1.transform);
@@ -59,6 +66,7 @@ public class GameGUI : MonoBehaviour {
 		}
 
 		if(player == 1){
+			BSP2.SetActive(true);
 			BSP2.GetComponent<RectTransform>().transform.localPosition = new Vector3(posicion.x, posicion.y, 0);
 
 			Transform t = GetChildByName("Placeholder", BSP2.transform);
@@ -68,6 +76,13 @@ public class GameGUI : MonoBehaviour {
 
 	}
 
+	public void HideHelp(int player)
+	{
+		if (player == 0)
+			BSP1.SetActive (false);
+		else
+			BSP2.SetActive(false);
+	}
 	private Transform GetChildByName(string name, Transform t){
 	
 		for(int i = 0; i < t.childCount; i++){
