@@ -1,23 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ActionController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ControlLuces.cs">
     <Files>
-      <File FileName="Assets\Scripts\ActionController.cs" Line="425" Column="23" />
-      <File FileName="Assets\Scripts\AudioController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Item.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EventController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Character.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MessageController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Texts.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PickableItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TurnOnLightThree.cs" Line="17" Column="27" />
+      <File FileName="Assets\Scripts\TurnOnLightOne.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ControlLuces.cs" Line="34" Column="39" />
+      <File FileName="Assets\Scripts\TurnOnLightTwo.cs" Line="13" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Edu\Documents\SGJ\Assets\Scripts\ActionController.cs" line="430" />
-      <Breakpoint file="C:\Users\Edu\Documents\SGJ\Assets\Scripts\Character.cs" line="84" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
