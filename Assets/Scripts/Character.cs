@@ -330,14 +330,6 @@ public class Character : MonoBehaviour {
 	{
 		_animator.SetInteger("horizontal",_horizontal);
 		_animator.SetInteger("vertical",_vertical);
-		if(_horizontal == 0 && _vertical == 0)
-		{
-			_animator.speed = 0;
-		}
-		else
-		{
-			_animator.speed = 1;
-		}
 	}
 	#endregion
 }

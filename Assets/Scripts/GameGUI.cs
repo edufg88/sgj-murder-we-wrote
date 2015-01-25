@@ -15,7 +15,7 @@ public class GameGUI : MonoBehaviour {
 	public Text timer;
 	private float _timeActual;
 
-	public float gameTime = 30f;
+	public float gameTime = 120f;
 	#endregion
 
 	#region Patron Singleton
@@ -112,7 +112,7 @@ public class GameGUI : MonoBehaviour {
 	public void TimeTravel(float deltaTime)
 	{
 		CancelInvoke ("TimePassed");
-		_timeActual = Mathf.Max(_timeActual - deltaTime,0);
+		_timeActual = Mathf.Max(_timeActual - deltaTime,1);
 		Invoke ("TimePassed", 0);
 	}
 	#endregion
