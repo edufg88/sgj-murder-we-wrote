@@ -51,12 +51,14 @@ public class Corpse : MonoBehaviour
 		else if (_attachment[0] != null && _attachment[1] == null)
 		{
 			this.transform.position = _attachment[0].transform.position;
-			InstantiateBloodSplash();
+			_attachment[0].speed = 0.01f;
+			//InstantiateBloodSplash();
 		}
 		else if (_attachment[0] == null && _attachment[1] != null)
 		{
 			this.transform.position = _attachment[1].transform.position;
-			InstantiateBloodSplash();
+			_attachment[1].speed = 0.01f;
+			//InstantiateBloodSplash();
 		}
 		else //if (_attachment[0] != null && _attachment[1] != null)
 		{

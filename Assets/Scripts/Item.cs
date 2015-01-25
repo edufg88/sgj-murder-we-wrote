@@ -384,9 +384,20 @@ public abstract class Item : MonoBehaviour
 			{
 				beforeUse = Texts.garbagebag;
 			}
-			else if (itemType == ItemType.EXIT)
+			else if (itemType == ItemType.EXIT || itemType == ItemType.DOOR)
 			{
-				beforeUse = Texts.exit;
+				if (EventController.Instance._activeEvent == EventController.ET.NEIGHBOUR_COMING)
+				{
+					beforeUse = Texts.doorNeigbor;
+				}
+				else if (EventController.Instance._activeEvent == EventController.ET.POLICE_COMING)
+				{
+					beforeUse = Texts.doorPolice;
+				}
+				else
+				{
+					beforeUse = Texts.exit;
+				}
 			}
 		}
 		else
