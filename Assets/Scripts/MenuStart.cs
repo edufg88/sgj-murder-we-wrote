@@ -43,7 +43,7 @@ public class MenuStart : MonoBehaviour
 
 		if (pressed1 && pressed2)
 		{
-			Application.LoadLevel("edu");
+			Application.LoadLevel("main");
 		}
 	}
 }
