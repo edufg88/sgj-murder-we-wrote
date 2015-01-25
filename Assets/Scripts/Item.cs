@@ -245,11 +245,14 @@ public abstract class Item : MonoBehaviour
 			}
 			else if (itemType == ItemType.CAT && other.itemType == ItemType.OVEN)
 			{
-				// TODO: Create FIRE object
+				// Create FIRE object
 				this.gameObject.SetActive(false);
 				other.gameObject.SetActive(false);
 				ItemController.Instance.ShowItem(ItemStrings[(int)ItemType.FIRE]);
 				character._item = null;
+
+				// Trigger event
+				EventController.Instance.LaunchEvent(EventController.ET.POLICE_COMING);
 			}
 			else if (itemType == ItemType.EXTINGUISHER && other.itemType == ItemType.FIRE)
 			{
