@@ -6,7 +6,7 @@ public class ControlLuces : MonoBehaviour {
 	public Animation animationLightRoomOne;
 	public Animation animationLightRoomTwo;
 	public Animation animationLightRoomThree;
-	
+	public Animation animationLightCentral;
 
 	#region Patron Singleton
 	private static ControlLuces _instancia = null;
@@ -29,6 +29,9 @@ public class ControlLuces : MonoBehaviour {
 		animationLightRoomTwo = GetChildByName("LuzTwo", this.transform).GetComponent<Animation>();
 
 		animationLightRoomThree = GetChildByName("LuzThree", this.transform).GetComponent<Animation>();
+
+//		animationLightCentral = GetChildByName("LuzCentral", this.transform).GetComponent<Animation>();
+//		animationLightCentral.Play("Parpadeo");
 	}
 
 	public void TurnOnRoomOne(){
