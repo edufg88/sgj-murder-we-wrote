@@ -6,6 +6,8 @@ public class PickableItem : Item
 	public int picked = 0;
 	private SpriteRenderer _sprite = null;
 	public Sprite image;
+
+	public Character attachedTo = null;
 	
 	public override bool IsPickable()
 	{
@@ -21,9 +23,8 @@ public class PickableItem : Item
 		}
 		else
 		{
-			this.gameObject.SetActive(false);
-			//this.enabled = false;
-			//_sprite.renderer.enabled = false;
+			//this.gameObject.SetActive(false);
+			attachedTo = character;
 		}
 	}
 
@@ -37,6 +38,10 @@ public class PickableItem : Item
 			this.gameObject.GetComponent<Corpse>().Detach(character);
 			character.Detach();
 		}
+		else
+		{
+			attachedTo = null;
+		}
 		this.transform.position = character.transform.position;
 	}
 
@@ -47,7 +52,12 @@ public class PickableItem : Item
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+	{
+		if (this.itemType != ItemType.CORPSE && attachedTo != null)
+		{
+			Vector3 newPos = new Vector3(attachedTo.transform.position.x+1, attachedTo.transform.position.y, attachedTo.transform.position.z);
+			this.transform.position = newPos;
+		}
 	}
 }

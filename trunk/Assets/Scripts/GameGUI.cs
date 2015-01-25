@@ -5,16 +5,17 @@ using UnityEngine.UI;
 public class GameGUI : MonoBehaviour {
 
 	#region ATTRIBUTES
-	private Image imageHUDP1;
-	private Image imageHUDP2;
+	//private Image imageHUDP1;
+	//private Image imageHUDP2;
 	private GameObject BSP1;
 	private GameObject BSP2;
 	public delegate void VoidDelegate();
 	public VoidDelegate OnTimeUp;
 	public Sprite emptyHUDP;
 	public Text timer;
-
 	private float _timeActual;
+
+	public float gameTime = 300f;
 	#endregion
 
 	#region Patron Singleton
@@ -35,8 +36,8 @@ public class GameGUI : MonoBehaviour {
 	#region PUBLIC METHODS
 	void Start(){
 
-		imageHUDP1 = GameObject.Find("HUDP1").GetComponent<Image>();
-		imageHUDP2 = GameObject.Find("HUDP2").GetComponent<Image>();
+		//imageHUDP1 = GameObject.Find("HUDP1").GetComponent<Image>();
+		//imageHUDP2 = GameObject.Find("HUDP2").GetComponent<Image>();
 
 		BSP1 = GameObject.Find("BubbleSpeechP1");
 		BSP2 = GameObject.Find("BubbleSpeechP2");
@@ -45,7 +46,7 @@ public class GameGUI : MonoBehaviour {
 		BSP2.SetActive (false);
 
 		//temporal
-		StartTimer(120);
+		StartTimer(gameTime);
 	}
 
 	
@@ -57,12 +58,13 @@ public class GameGUI : MonoBehaviour {
 		{
 			sprite = emptyHUDP;
 		}
+		/*
 		if(player == 0){
 			imageHUDP1.sprite = sprite;
 		}else if(player == 1){
 			imageHUDP2.sprite = sprite;
 		}
-
+		*/
 	}
 
 	public void ShowHelp(string message, Vector2 position, int player){
