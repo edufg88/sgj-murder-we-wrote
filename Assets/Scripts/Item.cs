@@ -64,6 +64,7 @@ public abstract class Item : MonoBehaviour
 	}
 
 	private ActionController _ac = null;
+	private AudioController _audio = null;
 	public ItemType itemType = ItemType.NONE;
 
 	public abstract bool IsPickable();
@@ -71,7 +72,7 @@ public abstract class Item : MonoBehaviour
 	public void UseWith(Character character, Item other)
 	{
 		_ac = ActionController.Instance;
-
+		_audio = AudioController.Instancia;
 		// 1 LEVEL COMBINATIONS
 		if (other == null)
 		{
@@ -82,6 +83,8 @@ public abstract class Item : MonoBehaviour
 				// Increase player speed
 				character.speed *= 1.5f;
 				this.gameObject.SetActive(false);
+				_audio.GetComponent<AudioController>().Play("drink", 0.0f, false);
+				_audio.GetComponent<AudioController>().Play("pontAeri", 3.0f, false);
 			}
 			else if (itemType == ItemType.WC)
 			{
@@ -91,9 +94,11 @@ public abstract class Item : MonoBehaviour
 					character.SitDown(this.transform.position);
 				else
 					character.SitUp();
+				_audio.GetComponent<AudioController>().Play("wc", 0.0f, false);
 			}
 			else if (itemType == ItemType.SINK)
 			{
+				//Falta efecto de sonido
 				_ac.AddActionResult(ActionController.ART.HIDDEN_CORPSE, 1);
 				_ac.AddActionResult(ActionController.ART.CLEAN_HOUSE, 3);
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 1);
@@ -117,6 +122,8 @@ public abstract class Item : MonoBehaviour
 			}
 			else if (itemType == ItemType.KNIFE)
 			{
+
+				_audio.GetComponent<AudioController>().Play("knife", 0.0f, false);
 				// Check proximity with the other player
 				if (character.IsCollidingOtherPlayer())
 				{

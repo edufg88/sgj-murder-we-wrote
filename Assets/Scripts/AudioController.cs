@@ -39,6 +39,7 @@ public class AudioController : MonoBehaviour
 	public AudioClip hit;
 	public AudioClip metalClick;
 	public AudioClip pain;
+	public AudioClip wc;
 	#endregion
 
 	#region Private attributes
@@ -48,7 +49,9 @@ public class AudioController : MonoBehaviour
 	#endregion
 
 	#region Public methods
-	public AudioSource Play (string soundName, bool loop = false)
+	
+
+	public AudioSource Play (string soundName,  float delay, bool loop = false)
 	{
 		if (_audioLibrary.ContainsKey(soundName))
 		{
@@ -58,7 +61,8 @@ public class AudioController : MonoBehaviour
 			source.loop = loop;
 			source.volume = _volume;
 			//Instantiate(go);
-			source.Play();
+			//source.Play();
+			source.PlayDelayed(delay);
 
 			if (loop)
 			{
@@ -121,8 +125,9 @@ public class AudioController : MonoBehaviour
 		_audioLibrary["hit"] = hit;
 		_audioLibrary["metalClick"] = metalClick;
 		_audioLibrary["pain"] = pain;
+		_audioLibrary["wc"] = wc;
 		// TODO: Remove as it is only for testing
-		Play ("ambient", true);
+		Play ("ambient", 0.0f, true);
 
 	}
 
