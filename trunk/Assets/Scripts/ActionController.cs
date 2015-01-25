@@ -45,14 +45,14 @@ public class ActionController : MonoBehaviour
 		_actionResults[(int)resultType] = value;
 	}
 
-	private const int hcvL = 5;
-	private const int hcvH = 10;
-	private const int chL = 5;
-	private const int chH = 10;
-	private const int hiL = 5;
-	private const int hiH = 10;
-	private const int ethL = 5;
-	private const int ethH = 10;
+	private const int hcvL = 10;
+	private const int hcvH = 20;
+	private const int chL = 4;
+	private const int chH = 8;
+	private const int hiL = 6;
+	private const int hiH = 11;
+	private const int ethL = -30;
+	private const int ethH = -15;
 
 	public void ProcessAllART()
 	{
@@ -79,13 +79,356 @@ public class ActionController : MonoBehaviour
 
 	public void ShowFinale()
 	{
+		string finalText = null;
+		ArrayList al = new ArrayList();
+
+		if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+		    _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH)
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_13_premioVecindario);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH || 
+		 			_actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM ))
+		{
+			al.Add(Texts.final_1_derositas);
+		}
+		else if ((_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW) 
+		         ||
+		         (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+				 _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+				 _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+				 (_actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH || 
+				 _actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM )))
+
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_7_nicolas);
+		}
+		else if ((_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+		          _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		          _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+		          _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW) 
+		         ||
+		         (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+				 _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+				 _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW &&
+				 _actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH))
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_5_incendio);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+				 _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+				 _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW &&
+				 (_actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM || 
+				 _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW ))
+			
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_6_inundacion);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH || 
+		 		 _actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM ))
+			
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_7_nicolas);
+			al.Add(Texts.final_13_premioVecindario);
+		}
+		else if ((_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+		          _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		          _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH &&
+		          _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW) 
+		         ||
+		         (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+				 _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+				 _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+				 _actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH))
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_8_secta);
+			al.Add(Texts.final_13_premioVecindario);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM || 
+				  _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW ))
+			
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_7_nicolas);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW)
+					
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_5_incendio);
+			al.Add(Texts.final_6_inundacion);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH || 
+				 _actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM ))
+					
+		{
+			al.Add(Texts.final_7_nicolas);
+			al.Add(Texts.final_13_premioVecindario);
+			al.Add(Texts.final_14_culpableA);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW)
+			
+		{
+			al.Add(Texts.final_8_secta);
+			al.Add(Texts.final_9_suicidio);
+			al.Add(Texts.final_10_moldeAnoBombon);
+			al.Add(Texts.final_11_comida);
+			al.Add(Texts.final_13_premioVecindario);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH || 
+		 		_actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM ))
+				
+		{
+			al.Add(Texts.final_14_culpableA);
+			al.Add(Texts.final_15_culpableB);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW)
+			
+		{
+			al.Add(Texts.final_8_secta);
+			al.Add(Texts.final_9_suicidio);
+			al.Add(Texts.final_10_moldeAnoBombon);
+			al.Add(Texts.final_11_comida);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH || 
+				  _actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM ))
+			
+		{
+			al.Add(Texts.final_5_incendio);
+			al.Add(Texts.final_6_inundacion);
+			al.Add(Texts.final_12_WDWDN);
+			al.Add(Texts.final_15_culpableB);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW)
+			
+		{
+			al.Add(Texts.final_5_incendio);
+			al.Add(Texts.final_6_inundacion);
+			al.Add(Texts.final_8_secta);
+			al.Add(Texts.final_9_suicidio);
+			al.Add(Texts.final_10_moldeAnoBombon);
+			al.Add(Texts.final_11_comida);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH)
+			
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_12_WDWDN);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM)
+			
+		{
+			al.Add(Texts.final_1_derositas);
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_12_WDWDN);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW)
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_12_WDWDN);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH)
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_12_WDWDN);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH 
+		 		 ||
+		 		  _actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM ))
+			
+		{
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_12_WDWDN);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW)
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_8_secta);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW)
+			
+		{
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_5_incendio);
+			al.Add(Texts.final_6_inundacion);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH)
+			
+		{
+			al.Add(Texts.final_5_incendio);
+			al.Add(Texts.final_6_inundacion);
+			al.Add(Texts.final_13_premioVecindario);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH &&
+		         _actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH)
+			
+		{
+			al.Add(Texts.final_7_nicolas);
+			al.Add(Texts.final_13_premioVecindario);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM || _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW))
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_9_suicidio);
+			al.Add(Texts.final_13_premioVecindario);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH)
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM || _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW))
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_10_moldeAnoBombon);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH)
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_5_incendio);
+			al.Add(Texts.final_6_inundacion);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW &&
+		         (_actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM || _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW))
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_5_incendio);
+			al.Add(Texts.final_6_inundacion);
+			al.Add(Texts.final_12_WDWDN);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.HIGH)
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+			al.Add(Texts.final_5_incendio);
+			al.Add(Texts.final_12_WDWDN);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.MEDIUM)
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_3_ebola);
+			al.Add(Texts.final_4_plaga);
+		}
+		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
+		         _actionFinalResults[(int)ART.HOUSE_INTEGRITY] == ART_RES.LOW)
+			
+		{
+			al.Add(Texts.final_2_lospillan);
+		}
+
+		System.Random s = new System.Random((int)Time.realtimeSinceStartup);
+		int idx = s.Next(al.Count);
+		finalText = (string)al[idx];
+
 		// TODO: Depending on _action final result get finale and show it
-		string final = Texts.incendio5;	
 		blackbg.SetActive(true);
 		finaleText.SetActive(true);
 		Text t = finaleText.GetComponent<Text>();
-		finaleText.GetComponentInChildren<Text>().text = final;
-
+		finaleText.GetComponentInChildren<Text>().text = finalText;
 	}
 
 	// Use this for initialization

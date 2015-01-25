@@ -40,12 +40,12 @@ public class Character : MonoBehaviour {
 	}
 	public void CleanBlood()
 	{
-		_animator.runtimeAnimatorController = controllerWithoutBlood; 
+		//_animator.runtimeAnimatorController = controllerWithoutBlood; 
 	}
 
 	public void DirtyBlood()
 	{
-		_animator.runtimeAnimatorController = controllerWithBlood; 
+		//_animator.runtimeAnimatorController = controllerWithBlood; 
 	}
 
 	public void SitDown(Vector2 position)
