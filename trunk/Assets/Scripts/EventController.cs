@@ -84,6 +84,8 @@ public class EventController : MonoBehaviour
 			}
 			else if (playerDecision == ED.NOT_OPEN_NEIGHBOUR)
 			{
+				ActionController.Instance.AddActionResult(ActionController.ART.HIDDEN_CORPSE, -1);
+				ActionController.Instance.AddActionResult(ActionController.ART.ETHIC, -4);
 				GameGUI.Instancia.TimeTravel(60);
 			}
 			break;

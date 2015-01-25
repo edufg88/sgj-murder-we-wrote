@@ -284,7 +284,63 @@ public abstract class Item : MonoBehaviour
 		if (other == null)
 		{
 			// Using object only
-			if (itemType == ItemType.ROCKSTAR)
+			if (itemType == ItemType.ACID)
+			{
+				beforeUse = Texts.acid;
+			}
+			else if (itemType == ItemType.BED)
+			{
+				beforeUse = Texts.bed;
+			}
+			else if (itemType == ItemType.OVEN)
+			{
+				beforeUse = Texts.oven;
+			}
+			else if (itemType == ItemType.CARPET)
+			{
+				beforeUse = Texts.carpet;
+			}
+			else if (itemType == ItemType.CAT)
+			{
+				beforeUse = Texts.cat;
+			}
+			else if (itemType == ItemType.CORPSE)
+			{
+				beforeUse = Texts.corpse;
+			}
+			else if (itemType == ItemType.EXTINGUISHER)
+			{
+				beforeUse = Texts.extinguisher;
+			}
+			else if (itemType == ItemType.FIRE)
+			{
+				beforeUse = Texts.fire;
+			}
+			else if (itemType == ItemType.FRIDGE)
+			{
+				beforeUse = Texts.fridge;
+			}
+			else if (itemType == ItemType.HOLE)
+			{
+				beforeUse = Texts.hole;
+			}
+			else if (itemType == ItemType.MOP)
+			{
+				beforeUse = Texts.mop;
+			}
+			else if (itemType == ItemType.PLANT)
+			{
+				beforeUse = Texts.plant;
+			}
+			else if (itemType == ItemType.SHOVEL)
+			{
+				beforeUse = Texts.shovel;
+			}
+			else if (itemType == ItemType.BLOOD)
+			{
+				beforeUse = Texts.blood;
+			}
+			else if (itemType == ItemType.ROCKSTAR)
 			{
 				beforeUse = Texts.rockstar;
 			}
