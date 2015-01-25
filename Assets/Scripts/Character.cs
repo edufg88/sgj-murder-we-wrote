@@ -17,6 +17,7 @@ public class Character : MonoBehaviour {
 	public KeyCode keyRight;
 	public KeyCode keyPick;
 	public KeyCode keyUse;
+	public float prevSpeed;
 	public float speed;
 	public int id;
 	public bool withBlood;
@@ -29,6 +30,21 @@ public class Character : MonoBehaviour {
 	#endregion
 
 	#region PUBLIC METHODS
+	public void StartPontAeri()
+	{
+		this.speed *= 2f;
+		Invoke("AbandonPontAeri", 12f);
+	}
+
+	public void AbandonPontAeri()
+	{
+		this.speed = this.prevSpeed;
+	}
+
+	void Start()
+	{
+		prevSpeed = speed;
+	}
 	public void Exit()
 	{
 		inDaHouse = false;

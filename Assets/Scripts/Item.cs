@@ -99,10 +99,10 @@ public abstract class Item : MonoBehaviour
 			{
 				_ac.AddActionResult(ActionController.ART.ETHIC, -5);
 				// Increase player speed
-				character.speed *= 1.5f;
+				character.StartPontAeri();
 				this.gameObject.SetActive(false);
 				_audio.GetComponent<AudioController>().Play("drink", 0.0f, false);
-				_audio.GetComponent<AudioController>().Play("pontAeri", 3.0f, false);
+				_audio.GetComponent<AudioController>().Play("pontAeri", 0.0f, false);
 			}
 			else if (itemType == ItemType.WC)
 			{
