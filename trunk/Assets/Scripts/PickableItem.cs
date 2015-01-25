@@ -37,6 +37,7 @@ public class PickableItem : Item
 		{
 			this.gameObject.GetComponent<Corpse>().Detach(character);
 			character.Detach();
+			character.speed = character.prevSpeed;
 		}
 		else
 		{
