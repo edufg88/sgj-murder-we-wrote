@@ -44,7 +44,6 @@ public class GameGUI : MonoBehaviour {
 
 		BSP1.SetActive (false);
 		BSP2.SetActive (false);
-
 		//temporal
 		StartTimer(gameTime);
 	}
