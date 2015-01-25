@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
 	}
 	// Use this for initialization
 	void Start () {
-		Invoke("GenerateRandomEvent", Random.Range (10, 20));
+		Invoke("GenerateRandomEvent", Random.Range (10, 40));
 		GameGUI.Instancia.OnTimeUp = EndGame;
 	}
 	
