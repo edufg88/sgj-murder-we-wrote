@@ -36,6 +36,22 @@ public class Corpse : MonoBehaviour
 		}
 	}
 
+	public void DetachAll()
+	{
+		if (_attachment[0] != null)
+		{
+			_attachment[0].Detach();
+			_attachment[0]._item = null;
+			_attachment[0] = null;
+		}
+		if (_attachment[1] != null)
+		{
+			_attachment[1].Detach();
+			_attachment[1]._item = null;
+			_attachment[1] = null;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 	
@@ -62,6 +78,8 @@ public class Corpse : MonoBehaviour
 		}
 		else //if (_attachment[0] != null && _attachment[1] != null)
 		{
+			_attachment[0].speed = _attachment[0].prevSpeed;
+			_attachment[1].speed = _attachment[1].prevSpeed;
 			this.transform.position = (_attachment[0].transform.position + _attachment[1].transform.position) / 2;
 		}
 	}

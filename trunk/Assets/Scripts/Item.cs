@@ -201,6 +201,7 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 2);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -5);
 
+				this.gameObject.GetComponent<Corpse>().DetachAll();
 				this.gameObject.SetActive(false);
 				character._item = null;
 			}
@@ -221,6 +222,7 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 1);
 				_ac.AddActionResult(ActionController.ART.ETHIC, 2);
 
+				this.gameObject.GetComponent<Corpse>().DetachAll();
 				this.gameObject.SetActive(false);
 				character._item = null;
 			}
@@ -231,6 +233,7 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 2);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -5);
 
+				this.gameObject.GetComponent<Corpse>().DetachAll();
 				this.gameObject.SetActive(false);
 				character._item = null;
 			}
@@ -250,6 +253,7 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.HOUSE_INTEGRITY, 8);
 				_ac.AddActionResult(ActionController.ART.ETHIC, -1);
 
+				this.gameObject.GetComponent<Corpse>().DetachAll();
 				this.gameObject.SetActive(false);
 				character._item = null;
 			}
@@ -259,6 +263,7 @@ public abstract class Item : MonoBehaviour
 				other.gameObject.SetActive(false);
 				character._item = null;
 
+				this.gameObject.GetComponent<Corpse>().DetachAll();
 				ItemController.Instance.ShowItem(ItemStrings[(int)ItemType.BATHANDCORPSE]);
 			}
 			else if (itemType == ItemType.ACID && other.itemType == ItemType.BATHANDCORPSE)
