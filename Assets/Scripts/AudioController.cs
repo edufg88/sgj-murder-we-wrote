@@ -24,6 +24,21 @@ public class AudioController : MonoBehaviour
 	public AudioClip doorOpen;
 	public AudioClip footstepOne;
 	public AudioClip footstepTwo;
+	public AudioClip drink;
+	public AudioClip fuerzaPolicial;
+	public AudioClip miauGato;
+	public AudioClip chicharra;
+	public AudioClip doorBell;
+	public AudioClip doorBellTwo;
+	public AudioClip osHanPillado;
+	public AudioClip phoneBell;
+	public AudioClip pontAeri;
+	public AudioClip bookFlip;
+	public AudioClip cloth;
+	public AudioClip knife;
+	public AudioClip hit;
+	public AudioClip metalClick;
+	public AudioClip pain;
 	#endregion
 
 	#region Private attributes
@@ -92,6 +107,20 @@ public class AudioController : MonoBehaviour
 		_audioLibrary["openDoor"] = doorOpen;
 		_audioLibrary["footstepOne"] = footstepOne;
 		_audioLibrary["footstepTwo"] = footstepTwo;
+		_audioLibrary["drink"] = drink;
+		_audioLibrary["fuerzaPolicial"] = fuerzaPolicial;
+		_audioLibrary["miau"] = miauGato;
+		_audioLibrary["chicharra"] = chicharra;
+		_audioLibrary["doorBell"] = doorBell;
+		_audioLibrary["doorBellTwo"] = doorBellTwo;
+		_audioLibrary["phoneBell"] = phoneBell;
+		_audioLibrary["pontAeri"] = pontAeri;
+		_audioLibrary["bookFlip"] = bookFlip;
+		_audioLibrary["cloth"] = cloth;
+		_audioLibrary["knife"] = knife;
+		_audioLibrary["hit"] = hit;
+		_audioLibrary["metalClick"] = metalClick;
+		_audioLibrary["pain"] = pain;
 		// TODO: Remove as it is only for testing
 		Play ("ambient", true);
 
