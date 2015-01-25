@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-		Invoke("GenerateRandomEvent", Random.Range (10, 60));
+		Invoke("GenerateRandomEvent", Random.Range (10, 20));
 		GameGUI.Instancia.OnTimeUp = EndGame;
 	}
 	
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
 		case 0: EventController.Instance.LaunchEvent (EventController.ET.NEIGHBOUR_COMING);
 			Debug.Log("pues vecino que viene");
 			break;
-		case 1: EventController.Instance.LaunchEvent (EventController.ET.ONO_CALLING);
+		case 1: EventController.Instance.LaunchEvent (EventController.ET.POLICE_COMING);
 			Debug.Log("pues ono");
 			break;
 		}
