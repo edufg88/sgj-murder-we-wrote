@@ -28,7 +28,9 @@ public abstract class Item : MonoBehaviour
 		"BathAndCorpse",
 		"Hole",
 		"Fire",
-		"Exit"
+		"Exit",
+		"Door",
+		"ItemCount"
 	};
 
 	public enum ItemType
@@ -55,11 +57,12 @@ public abstract class Item : MonoBehaviour
 		OVEN,
 		BATH,
 		PLANT,
-		EXIT,
+
 		// MIX (FIXED)
 		BATHANDCORPSE,
 		HOLE,
 		FIRE,
+		EXIT,
 		//
 		DOOR,
 
@@ -272,8 +275,9 @@ public abstract class Item : MonoBehaviour
 			{
 				// Create FIRE object
 				this.gameObject.SetActive(false);
-				other.gameObject.SetActive(false);
-				ItemController.Instance.ShowItem(ItemStrings[(int)ItemType.FIRE]);
+//				other.gameObject.SetActive(false);
+				int idx = (int)ItemType.FIRE;
+				ItemController.Instance.ShowItem(ItemStrings[idx]);
 				character._item = null;
 
 				// Trigger event

@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\GameGUI.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\ItemController.cs" />
+     <Compile Include="Assets\Scripts\MessageController.cs" />
      <Compile Include="Assets\Scripts\NotificationCenter.cs" />
      <Compile Include="Assets\Scripts\PickableItem.cs" />
      <Compile Include="Assets\Scripts\ScreenController.cs" />
