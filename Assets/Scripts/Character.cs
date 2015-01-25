@@ -20,8 +20,11 @@ public class Character : MonoBehaviour {
 	public float speed;
 	public int id;
 	public bool withBlood;
+	public bool isSitDown;
 	public bool dead = false;
 	public GameObject corpsePrefab;
+	public RuntimeAnimatorController controllerWithoutBlood;
+	public RuntimeAnimatorController controllerWithBlood;
 	#endregion
 
 	#region PUBLIC METHODS
@@ -34,6 +37,27 @@ public class Character : MonoBehaviour {
 		corpse.transform.position = this.transform.position;
 		gameObject.SetActive (false);
 
+	}
+	public void CleanBlood()
+	{
+		_animator.runtimeAnimatorController = controllerWithoutBlood; 
+	}
+
+	public void DirtyBlood()
+	{
+		_animator.runtimeAnimatorController = controllerWithBlood; 
+	}
+
+	public void SitDown(Vector2 position)
+	{
+		this.transform.position = position;
+		isSitDown = true;
+		_animator.SetBool ("isSitDown", true);
+	}
+	public void SitUp()
+	{
+		isSitDown = false;
+		_animator.SetBool ("isSitDown", false);
 	}
 
 	public Character GetOtherPlayer()
@@ -58,6 +82,7 @@ public class Character : MonoBehaviour {
 		_horizontal = 0;
 		_vertical = 0;
 		_animator = this.gameObject.GetComponent<Animator> ();
+		DirtyBlood ();
 	}
 	
 	// Update is called once per frame
@@ -247,7 +272,7 @@ public class Character : MonoBehaviour {
 	private void Move()
 	{
 		Vector2 newPos = new Vector2 (this.gameObject.transform.localPosition.x  + _horizontal * speed, this.gameObject.transform.localPosition.y + _vertical * speed);
-		if(_horizontal != 0 || _vertical != 0)
+		if((_horizontal != 0 || _vertical != 0 ) && !isSitDown)
 		{
 			this.gameObject.transform.localPosition = Vector3.MoveTowards(this.gameObject.transform.localPosition, newPos,speed);
 			if (_attachment != null)

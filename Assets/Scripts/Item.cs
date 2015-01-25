@@ -87,7 +87,10 @@ public abstract class Item : MonoBehaviour
 			{
 				_ac.AddActionResult(ActionController.ART.ETHIC, 1);
 
-				// TODO: Sit
+				if(!character.isSitDown)
+					character.SitDown(this.transform.position);
+				else
+					character.SitUp();
 			}
 			else if (itemType == ItemType.SINK)
 			{
@@ -99,7 +102,7 @@ public abstract class Item : MonoBehaviour
 				if (character.withBlood)
 				{
 					character.withBlood = false;
-					// TODO: Change sprite
+					character.CleanBlood();
 				}
 			}
 			else if (itemType == ItemType.PHONE)
