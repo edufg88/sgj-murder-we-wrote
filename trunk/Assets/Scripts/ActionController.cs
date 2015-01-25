@@ -87,6 +87,7 @@ public class ActionController : MonoBehaviour
 		{
 			al.Add(Texts.final_1_derositas);
 			al.Add(Texts.final_13_premioVecindario);
+			al.Add(Texts.final_16_orden);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
@@ -122,7 +123,8 @@ public class ActionController : MonoBehaviour
 				 _actionFinalResults[(int)ART.ETHIC] == ART_RES.HIGH))
 		{
 			al.Add(Texts.final_1_derositas);
-			al.Add(Texts.final_5_incendio);
+			//al.Add(Texts.final_5_incendio);
+			al.Add(Texts.final_3_ebola);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
 				 _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
@@ -132,7 +134,8 @@ public class ActionController : MonoBehaviour
 			
 		{
 			al.Add(Texts.final_1_derositas);
-			al.Add(Texts.final_6_inundacion);
+			//al.Add(Texts.final_6_inundacion);
+			al.Add(Texts.final_4_plaga);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
@@ -146,6 +149,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_4_plaga);
 			al.Add(Texts.final_7_nicolas);
 			al.Add(Texts.final_13_premioVecindario);
+			al.Add(Texts.final_16_orden);
 		}
 		else if ((_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
 		          _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
@@ -162,6 +166,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_4_plaga);
 			al.Add(Texts.final_8_secta);
 			al.Add(Texts.final_13_premioVecindario);
+			al.Add(Texts.final_16_orden);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.HIGH &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
@@ -184,7 +189,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_3_ebola);
 			al.Add(Texts.final_4_plaga);
 			al.Add(Texts.final_5_incendio);
-			al.Add(Texts.final_6_inundacion);
+			//al.Add(Texts.final_6_inundacion);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
@@ -196,6 +201,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_7_nicolas);
 			al.Add(Texts.final_13_premioVecindario);
 			al.Add(Texts.final_14_culpableA);
+			al.Add(Texts.final_16_orden);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
@@ -208,6 +214,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_10_moldeAnoBombon);
 			al.Add(Texts.final_11_comida);
 			al.Add(Texts.final_13_premioVecindario);
+			al.Add(Texts.final_16_orden);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
@@ -237,10 +244,12 @@ public class ActionController : MonoBehaviour
 				  _actionFinalResults[(int)ART.ETHIC] == ART_RES.MEDIUM ))
 			
 		{
-			al.Add(Texts.final_5_incendio);
-			al.Add(Texts.final_6_inundacion);
+			//al.Add(Texts.final_5_incendio);
+			//al.Add(Texts.final_6_inundacion);
 			al.Add(Texts.final_12_WDWDN);
+			al.Add(Texts.final_13_premioVecindario);
 			al.Add(Texts.final_15_culpableB);
+			al.Add(Texts.final_16_orden);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH &&
@@ -271,6 +280,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_1_derositas);
 			al.Add(Texts.final_2_lospillan);
 			al.Add(Texts.final_12_WDWDN);
+			al.Add(Texts.final_17_interrogar);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
@@ -279,6 +289,7 @@ public class ActionController : MonoBehaviour
 		{
 			al.Add(Texts.final_2_lospillan);
 			al.Add(Texts.final_12_WDWDN);
+			al.Add(Texts.final_17_interrogar);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
@@ -287,6 +298,7 @@ public class ActionController : MonoBehaviour
 		{
 			al.Add(Texts.final_2_lospillan);
 			al.Add(Texts.final_12_WDWDN);
+			al.Add(Texts.final_17_interrogar);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
@@ -306,10 +318,11 @@ public class ActionController : MonoBehaviour
 		         _actionFinalResults[(int)ART.ETHIC] == ART_RES.LOW)
 			
 		{
-			al.Add(Texts.final_2_lospillan);
+			//al.Add(Texts.final_2_lospillan);
 			al.Add(Texts.final_3_ebola);
 			al.Add(Texts.final_4_plaga);
 			al.Add(Texts.final_8_secta);
+			al.Add(Texts.final_17_interrogar);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.MEDIUM &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
@@ -325,9 +338,13 @@ public class ActionController : MonoBehaviour
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.HIGH)
 			
 		{
-			al.Add(Texts.final_5_incendio);
-			al.Add(Texts.final_6_inundacion);
+			//al.Add(Texts.final_5_incendio);
+			//al.Add(Texts.final_6_inundacion);
+			al.Add(Texts.final_2_lospillan);
 			al.Add(Texts.final_13_premioVecindario);
+			al.Add(Texts.final_14_culpableA);
+			al.Add(Texts.final_15_culpableB);
+			al.Add(Texts.final_16_orden);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
@@ -337,6 +354,7 @@ public class ActionController : MonoBehaviour
 		{
 			al.Add(Texts.final_7_nicolas);
 			al.Add(Texts.final_13_premioVecindario);
+			al.Add(Texts.final_16_orden);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
@@ -348,7 +366,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_3_ebola);
 			al.Add(Texts.final_4_plaga);
 			al.Add(Texts.final_9_suicidio);
-			al.Add(Texts.final_13_premioVecindario);
+			al.Add(Texts.final_16_orden);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
@@ -380,6 +398,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_4_plaga);
 			al.Add(Texts.final_5_incendio);
 			al.Add(Texts.final_6_inundacion);
+			al.Add(Texts.final_17_interrogar);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.MEDIUM &&
@@ -388,9 +407,10 @@ public class ActionController : MonoBehaviour
 			
 		{
 			al.Add(Texts.final_2_lospillan);
-			al.Add(Texts.final_5_incendio);
-			al.Add(Texts.final_6_inundacion);
+			//al.Add(Texts.final_5_incendio);
+			//al.Add(Texts.final_6_inundacion);
 			al.Add(Texts.final_12_WDWDN);
+			al.Add(Texts.final_17_interrogar);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
@@ -402,6 +422,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_4_plaga);
 			al.Add(Texts.final_5_incendio);
 			al.Add(Texts.final_12_WDWDN);
+			al.Add(Texts.final_17_interrogar);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
@@ -411,6 +432,7 @@ public class ActionController : MonoBehaviour
 			al.Add(Texts.final_2_lospillan);
 			al.Add(Texts.final_3_ebola);
 			al.Add(Texts.final_4_plaga);
+			//al.Add(Texts.final_17_interrogar);
 		}
 		else if (_actionFinalResults[(int)ART.HIDDEN_CORPSE] == ART_RES.LOW &&
 		         _actionFinalResults[(int)ART.CLEAN_HOUSE] == ART_RES.LOW &&
@@ -418,6 +440,7 @@ public class ActionController : MonoBehaviour
 			
 		{
 			al.Add(Texts.final_2_lospillan);
+			al.Add(Texts.final_17_interrogar);
 		}
 
 		System.Random s = new System.Random((int)Time.realtimeSinceStartup);

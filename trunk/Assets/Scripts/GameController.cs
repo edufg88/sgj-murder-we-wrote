@@ -17,15 +17,19 @@ public class GameController : MonoBehaviour
 		}
 	}
 	#endregion
-
+	public bool finished = false;
 	public Character char1 = null;
 	public Character char2 = null;
 	public int charactersAvailable = 2;
 
 	public void EndGame()
 	{
-		ActionController.Instance.ProcessAllART();
-		ActionController.Instance.ShowFinale();
+		if (!finished)
+		{
+			ActionController.Instance.ProcessAllART();
+			ActionController.Instance.ShowFinale();
+			finished = true;
+		}
 	}
 
 	public void RestartGame()
