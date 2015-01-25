@@ -28,6 +28,11 @@ public class GameController : MonoBehaviour
 		ActionController.Instance.ShowFinale();
 	}
 
+	public void RestartGame()
+	{
+		Debug.Log ("deberia reiniciar cabrones");
+		Application.LoadLevel(Application.loadedLevel);
+	}
 	// Use this for initialization
 	void Start () {
 		Invoke("GenerateRandomEvent", Random.Range (10, 20));
