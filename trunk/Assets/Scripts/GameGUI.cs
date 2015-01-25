@@ -15,7 +15,7 @@ public class GameGUI : MonoBehaviour {
 	public Text timer;
 	private float _timeActual;
 
-	public float gameTime = 300f;
+	public float gameTime = 30f;
 	#endregion
 
 	#region Patron Singleton
