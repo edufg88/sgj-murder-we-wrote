@@ -68,13 +68,13 @@ public class Corpse : MonoBehaviour
 		{
 			this.transform.position = _attachment[0].transform.position;
 			_attachment[0].speed = 0.01f;
-			//InstantiateBloodSplash();
+//			InstantiateBloodSplash();
 		}
 		else if (_attachment[0] == null && _attachment[1] != null)
 		{
 			this.transform.position = _attachment[1].transform.position;
 			_attachment[1].speed = 0.01f;
-			//InstantiateBloodSplash();
+//			InstantiateBloodSplash();
 		}
 		else //if (_attachment[0] != null && _attachment[1] != null)
 		{

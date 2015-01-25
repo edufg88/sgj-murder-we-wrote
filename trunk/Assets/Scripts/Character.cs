@@ -68,6 +68,7 @@ public class Character : MonoBehaviour {
 		GameObject corpse = (GameObject)Instantiate (corpsePrefab);
 		corpse.transform.parent = GameObject.Find ("Items").transform;
 		corpse.transform.position = this.transform.position;
+		corpse.transform.localScale = new Vector2 (4,4);
 		gameObject.SetActive (false);
 
 	}
@@ -88,11 +89,13 @@ public class Character : MonoBehaviour {
 		this.transform.position = position;
 		isSitDown = true;
 		_animator.SetBool ("isSitDown", true);
+		_animator.speed = 2;
 	}
 	public void SitUp()
 	{
 		isSitDown = false;
 		_animator.SetBool ("isSitDown", false);
+		_animator.speed = 1;
 	}
 
 	public Character GetOtherPlayer()
