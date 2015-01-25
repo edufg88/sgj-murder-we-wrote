@@ -57,7 +57,7 @@ public class Character : MonoBehaviour {
 		{
 			EventController.Instance.LaunchEvent(EventController.ET.P2_OUT);
 		}
-
+		GameGUI.Instancia.HideHelp(id);
 		this.gameObject.SetActive(false);
 	}
 
