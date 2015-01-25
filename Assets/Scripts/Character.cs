@@ -21,6 +21,7 @@ public class Character : MonoBehaviour {
 	public int id;
 	public bool withBlood;
 	public bool isSitDown;
+	public bool inDaHouse = true;
 	public bool dead = false;
 	public GameObject corpsePrefab;
 	public RuntimeAnimatorController controllerWithoutBlood;
@@ -28,6 +29,22 @@ public class Character : MonoBehaviour {
 	#endregion
 
 	#region PUBLIC METHODS
+	public void Exit()
+	{
+		inDaHouse = false;
+
+		if (this.gameObject.name == "Character1")
+		{
+			EventController.Instance.LaunchEvent(EventController.ET.P1_OUT);
+		}
+		else if (this.gameObject.name == "Character2")
+		{
+			EventController.Instance.LaunchEvent(EventController.ET.P2_OUT);
+		}
+
+		this.gameObject.SetActive(false);
+	}
+
 	public void Die()
 	{
 		dead = true;

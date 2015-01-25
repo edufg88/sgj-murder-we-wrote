@@ -60,6 +60,9 @@ public abstract class Item : MonoBehaviour
 		BATHANDCORPSE,
 		HOLE,
 		FIRE,
+		//
+		DOOR,
+
 		ITEM_COUNT
 	}
 
@@ -76,6 +79,21 @@ public abstract class Item : MonoBehaviour
 		// 1 LEVEL COMBINATIONS
 		if (other == null)
 		{
+			if (itemType == ItemType.DOOR)
+			{
+				if (EventController.Instance._activeEvent == EventController.ET.NEIGHBOUR_COMING)
+				{
+					EventController.Instance.TakeDecision(EventController.ED.OPEN_NEIGHBOUR);
+				}
+				else if (EventController.Instance._activeEvent == EventController.ET.POLICE_COMING)
+				{
+					EventController.Instance.TakeDecision(EventController.ED.OPEN_POLICE);
+				}
+				else
+				{
+					character.Exit();
+				}
+			}
 			// Using object only
 			if (itemType == ItemType.ROCKSTAR)
 			{

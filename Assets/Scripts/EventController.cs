@@ -18,7 +18,7 @@ public class EventController : MonoBehaviour
 	}
 	#endregion
 
-	private ET _activeEvent = ET.NONE;
+	public ET _activeEvent = ET.NONE;
 	private const float _eventDecisionTime = 30f;
 
 	public enum ET// EventType
