@@ -282,8 +282,11 @@ public class Character : MonoBehaviour {
 		{
 			if(characterBound.Intersects(pi.GetComponent<BoxCollider2D>().bounds))
 			{
-				item = pi;
-				return true;
+				if (_item == null || pi.itemType != _item.itemType)
+				{
+					item = pi;
+					return true;
+				}
 			}
 		}
 		item = null;
@@ -296,8 +299,11 @@ public class Character : MonoBehaviour {
 		{
 			if(characterBound.Intersects(pi.GetComponent<BoxCollider2D>().bounds))
 			{
-				item = pi;
-				return true;
+				if (_item == null || pi.itemType != _item.itemType)
+				{
+					item = pi;
+					return true;
+				}
 			}
 		}
 		item = null;
