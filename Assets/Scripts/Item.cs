@@ -274,6 +274,7 @@ public abstract class Item : MonoBehaviour
 				_ac.AddActionResult(ActionController.ART.ETHIC, -10);
 
 				other.gameObject.SetActive(false);
+				this.gameObject.SetActive(false);
 				character._item = null;
 			}
 			else if (itemType == ItemType.CAT && other.itemType == ItemType.OVEN)

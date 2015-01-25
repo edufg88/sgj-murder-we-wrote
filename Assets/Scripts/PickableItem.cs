@@ -57,7 +57,7 @@ public class PickableItem : Item
 	{
 		if (this.itemType != ItemType.CORPSE && attachedTo != null)
 		{
-			Vector3 newPos = new Vector3(attachedTo.transform.position.x+1, attachedTo.transform.position.y, attachedTo.transform.position.z);
+			Vector3 newPos = new Vector3(attachedTo.transform.position.x+0.35f, attachedTo.transform.position.y, attachedTo.transform.position.z);
 			this.transform.position = newPos;
 		}
 	}

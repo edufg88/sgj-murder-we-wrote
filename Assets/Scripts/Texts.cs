@@ -63,6 +63,7 @@ public static class Texts {
 
 	public static string final_1_derositas = "The neighborhood has heard strange noises in the house but everything seems fine. Good night!";
 	public static string final_2_lospillan = "Put yours arms in the ground, now! You are under arrest";
+	public static string final_17_interrogar = "We have some doubts about the crime. Come with us!";
 	public static string final_3_ebola = "Due to poor hygiene in the house, you have Ebola infected by a bat.";
 	public static string final_4_plaga = "A FEMAs major operation unfolds around the house.";
 	public static string final_5_incendio = "OOOHHH, There are fire everywhere. It's the final. God, help me, help me!";
@@ -74,6 +75,7 @@ public static class Texts {
 	public static string final_11_comida = "For what remains free, do you want to eat a turnip?";
 	public static string final_12_WDWDN = "Everything is ok....What do we do now?";
 	public static string final_13_premioVecindario = "Your house is so clean that the neighborhood has given you an award for most beautiful.";
+	public static string final_16_orden = "Everything seems to be quite in order.";
 	public static string final_14_culpableA = "The police was in homicides and has detected that the murderer is Player A.";
 	public static string final_15_culpableB = "The police was in homicides and has detected that the murderer is Player B.";
 }
