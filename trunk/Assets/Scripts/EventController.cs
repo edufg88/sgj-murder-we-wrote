@@ -48,14 +48,22 @@ public class EventController : MonoBehaviour
 		switch (eventType)
 		{
 		case ET.NEIGHBOUR_COMING:
+			MessageController.Instancia.ShowMessage(Texts.doorNeigbor);
 			break;
 		case ET.POLICE_COMING:
+			MessageController.Instancia.ShowMessage(Texts.doorPolice);
 			break;
 		case ET.ONO_CALLING:
 			break;
 		case ET.P1_OUT:
+			GameController.Instance.charactersAvailable--;
+			ActionController.Instance.AddActionResult(ActionController.ART.HIDDEN_CORPSE, -2);
+			ActionController.Instance.AddActionResult(ActionController.ART.ETHIC, -7);
 			break;
 		case ET.P2_OUT:
+			GameController.Instance.charactersAvailable--;
+			ActionController.Instance.AddActionResult(ActionController.ART.HIDDEN_CORPSE, -2);
+			ActionController.Instance.AddActionResult(ActionController.ART.ETHIC, -7);
 			break;
 		default:
 			return;
@@ -72,21 +80,23 @@ public class EventController : MonoBehaviour
 		case ET.NEIGHBOUR_COMING:
 			if (playerDecision == ED.OPEN_NEIGHBOUR)
 			{
-
+				GameController.Instance.EndGame();
 			}
 			else if (playerDecision == ED.NOT_OPEN_NEIGHBOUR)
 			{
-
+				GameGUI.Instancia.TimeTravel(60);
 			}
 			break;
 		case ET.POLICE_COMING:
 			if (playerDecision == ED.OPEN_POLICE)
 			{
-
+				GameController.Instance.EndGame();
 			}
 			else if (playerDecision == ED.NOT_OPEN_POLICE)
 			{
-
+				ActionController.Instance.AddActionResult(ActionController.ART.HIDDEN_CORPSE, -1);
+				ActionController.Instance.AddActionResult(ActionController.ART.ETHIC, -4);
+				GameController.Instance.EndGame();
 			}
 			break;
 		case ET.ONO_CALLING:
@@ -98,10 +108,6 @@ public class EventController : MonoBehaviour
 			{
 
 			}
-			break;
-		case ET.P1_OUT:
-			break;
-		case ET.P2_OUT:
 			break;
 		default:
 			return;
