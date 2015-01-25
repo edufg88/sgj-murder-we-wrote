@@ -65,12 +65,14 @@ public class GameGUI : MonoBehaviour {
 
 	}
 
-	public void ShowHelp(string message, Vector2 posicion, int player){
+	public void ShowHelp(string message, Vector2 position, int player){
 
 		if(player == 0){
 			BSP1.SetActive(true);
-			BSP1.GetComponent<RectTransform>().anchoredPosition = new Vector3(posicion.x, posicion.y, 0);
-
+			BSP1.GetComponent<RectTransform>().anchoredPosition = new Vector3(position.x, position.y, 0);
+			int x = position.x >= 0 ? 1 : 0;
+			int y = position.y >= 0 ? 1 : 0;
+			BSP1.GetComponent<RectTransform>().pivot = new Vector2(x, y);
 			Transform t = GetChildByName("Placeholder", BSP1.transform);
 		
 			t.GetComponent<Text>().text = message;
@@ -79,7 +81,10 @@ public class GameGUI : MonoBehaviour {
 
 		if(player == 1){
 			BSP2.SetActive(true);
-			BSP2.GetComponent<RectTransform>().anchoredPosition = new Vector3(posicion.x, posicion.y, 0);
+			BSP2.GetComponent<RectTransform>().anchoredPosition = new Vector3(position.x, position.y, 0);
+			int x = position.x >= 0 ? 1 : 0;
+			int y = position.y >= 0 ? 1 : 0;
+			BSP2.GetComponent<RectTransform>().pivot = new Vector2(x, y);
 
 			Transform t = GetChildByName("Placeholder", BSP2.transform);
 		
