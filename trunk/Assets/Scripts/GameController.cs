@@ -26,6 +26,8 @@ public class GameController : MonoBehaviour
 	{
 		if (!finished)
 		{
+			char1.enabled = false;
+			char2.enabled = false;
 			ActionController.Instance.ProcessAllART();
 			ActionController.Instance.ShowFinale();
 			finished = true;

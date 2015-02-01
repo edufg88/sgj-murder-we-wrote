@@ -30,6 +30,7 @@ public abstract class Item : MonoBehaviour
 		"Fire",
 		"Exit",
 		"Door",
+		"BathAndAcid",
 		"ItemCount"
 	};
 
@@ -65,7 +66,7 @@ public abstract class Item : MonoBehaviour
 		EXIT,
 		//
 		DOOR,
-
+		BATHANDACID,
 		ITEM_COUNT
 	}
 
@@ -225,6 +226,7 @@ public abstract class Item : MonoBehaviour
 				this.gameObject.GetComponent<Corpse>().DetachAll();
 				this.gameObject.SetActive(false);
 				character._item = null;
+				this.gameObject.GetComponent<Corpse>().DetachAll();
 			}
 			else if (itemType == ItemType.CORPSE && other.itemType == ItemType.FRIDGE)
 			{
@@ -236,6 +238,7 @@ public abstract class Item : MonoBehaviour
 				this.gameObject.GetComponent<Corpse>().DetachAll();
 				this.gameObject.SetActive(false);
 				character._item = null;
+				this.gameObject.GetComponent<Corpse>().DetachAll();
 			}
 			// 3 LEVEL COMBINATION
 			else if (itemType == ItemType.SHOVEL && other.itemType == ItemType.PLANT)
@@ -276,6 +279,7 @@ public abstract class Item : MonoBehaviour
 				other.gameObject.SetActive(false);
 				this.gameObject.SetActive(false);
 				character._item = null;
+				ItemController.Instance.ShowItem(ItemStrings[(int)ItemType.BATHANDACID]);
 			}
 			else if (itemType == ItemType.CAT && other.itemType == ItemType.OVEN)
 			{
