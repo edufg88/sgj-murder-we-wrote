@@ -260,6 +260,7 @@ public class Character : MonoBehaviour {
 			_attachment = null;
 			aux.Detach();
 		}
+		speed = prevSpeed;
 	}
 
 	public void PickItem(PickableItem item)
@@ -315,13 +316,13 @@ public class Character : MonoBehaviour {
 
 	private void Move()
 	{
-		Vector2 newPos = new Vector2 (this.gameObject.transform.localPosition.x  + _horizontal * speed, this.gameObject.transform.localPosition.y + _vertical * speed);
+		Vector2 newPos = new Vector2 (this.gameObject.transform.localPosition.x  + _horizontal * speed * Time.deltaTime, this.gameObject.transform.localPosition.y + _vertical * speed * Time.deltaTime);
 		if((_horizontal != 0 || _vertical != 0 ) && !isSitDown)
 		{
 			this.gameObject.transform.localPosition = Vector3.MoveTowards(this.gameObject.transform.localPosition, newPos,speed);
 			if (_attachment != null)
 			{
-				Vector2 newPos2 = new Vector2 (_attachment.transform.localPosition.x  + _horizontal * speed, _attachment.transform.localPosition.y + _vertical * speed);
+				Vector2 newPos2 = new Vector2 (_attachment.transform.localPosition.x  + _horizontal * speed * Time.deltaTime, _attachment.transform.localPosition.y + _vertical * speed * Time.deltaTime);
 				_attachment.transform.localPosition = Vector3.MoveTowards(_attachment.transform.localPosition, newPos2,speed);
 			}
 		}
